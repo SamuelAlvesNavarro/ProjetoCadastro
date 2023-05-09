@@ -10,6 +10,7 @@
     $res = mysqli_query($con, $sql);
     if(mysqli_affected_rows($con) == 1){
         echo "Dados cadastrados com sucesso";
+        header("Location:listar_usuarios.php");
     } else{
         echo "Falha na gravação do registro<br>";
     }

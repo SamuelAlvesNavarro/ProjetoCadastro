@@ -1,3 +1,12 @@
+<?php
+    require 'conexao.php';
+    $id = $_GET['id_usuario'];
+    $sql = "SELECT * FROM usuario WHERE id_usuario = '$id'";
+    $result = mysqli_query($con, $sql);
+    $row = mysqli_fetch_array($result);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -10,27 +19,27 @@
 </head>
 <body>
     <div class="text-center container-fluid p-4">
-        <h1 class="h1">Cadastro de Usuário - IFSP</h1>
+        <h1 class="h1">Alterar Dados do Usuário - IFSP</h1>
     </div>
-    <form method="post" action="cadastro_usuario.php" class="container border border-black border-1 align-middle container-md">
+    <form method="post" action="altera_usuario_exe.php" class="container border border-black border-1 align-middle">
         <div>
             <label for="" class="form-label pt-3">Nome: </label>
-            <input type="text" class="form-control ms-3" name="nome" id="nome" required style="width: 90%;" placeholder="Enter name"><br>
+            <input type="text" class="form-control ms-3" name="nome" id="nome" required style="width: 90%;" value="<?php echo $row['nome'] ?>"><br>
         </div>
         <div>
             <label for="" class="form-label">E-mail: </label>
-            <input type="text" class="form-control ms-3" name="email" id="nome" required placeholder="name@example.com" style="width: 90%;"><br>
+            <input type="text" class="form-control ms-3" name="email" id="nome" required value="<?php echo $row['email'] ?>" style="width: 90%;"><br>
         </div>
         <div>
             <label for="" class="form-label">Telefone: </label>
-            <input type="tel" class="form-control ms-3" name="fone" id="nome" pattern="\([0-9]{2}\)([9]{1})?[0-9]{4}-[0-9]{4}" placeholder="Formato (18) 99999-8888" style="width: 90%;"><br>
+            <input type="tel" class="form-control ms-3" name="fone" id="nome" pattern="\([0-9]{2}\)([9]{1})?[0-9]{4}-[0-9]{4}" value="<?php echo $row['fone'] ?>" style="width: 90%;"><br>
         </div>
         <div>
             <label for="" class="form-label">Senha: </label>
-            <input type="password" class="form-control ms-3" name="senha" id="nome" required style="width: 90%;" placeholder="Enter password"><br><br>
+            <input type="password" class="form-control ms-3" name="senha" id="nome" required style="width: 90%;" value="<?php echo $row['senha'] ?>"><br><br>
         </div>
         <div>
-            <input type="submit" value="Enviar" class="btn btn-outline-primary mb-3 ms-3">
+            <input type="submit" value="Enviar" class="btn btn-primary mb-3 ms-3">
         </div>
     </form>
 </body>

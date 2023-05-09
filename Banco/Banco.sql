@@ -11,3 +11,7 @@ CREATE TABLE usuario(
     fone varchar(30) null,
     senha varchar(30) not null
 );
+
+/*
+    UPDATE usuario SET nome = 'Fulano', email = 'ciclano' WHERE id_usuario = '?';
+*/
