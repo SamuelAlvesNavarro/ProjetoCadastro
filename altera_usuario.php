@@ -1,6 +1,8 @@
 <?php
     require 'conexao.php';
+    session_start();
     $id = $_GET['id_usuario'];
+    $_SESSION['id'] = $id;
     $sql = "SELECT * FROM usuario WHERE id_usuario = '$id'";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
@@ -22,6 +24,7 @@
         <h1 class="h1">Alterar Dados do Usuário - IFSP</h1>
     </div>
     <form method="post" action="altera_usuario_exe.php" class="container border border-black border-1 align-middle">
+        <!-- <input name="id_usuario" type="hidden" value="<?php //echo $row['id_usuario'] ?>" !-->
         <div>
             <label for="" class="form-label pt-3">Nome: </label>
             <input type="text" class="form-control ms-3" name="nome" id="nome" required style="width: 90%;" value="<?php echo $row['nome'] ?>"><br>

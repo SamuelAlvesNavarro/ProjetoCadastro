@@ -1,3 +1,11 @@
+<?php 
+
+                if(empty($_GET['v'])){
+                    $texto = "";
+                }else{  
+                    $texto = $_GET['v'];  
+                }
+            ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -15,19 +23,23 @@
     <form method="post" action="cadastro_usuario.php" class="container border border-black border-1 align-middle container-md">
         <div>
             <label for="" class="form-label pt-3">Nome: </label>
-            <input type="text" class="form-control ms-3" name="nome" id="nome" required style="width: 90%;" placeholder="Enter name"><br>
+            <input type="text" class="form-control" name="nome" id="nome" required placeholder="Enter name"><br>
         </div>
         <div>
-            <label for="" class="form-label">E-mail: </label>
-            <input type="text" class="form-control ms-3" name="email" id="nome" required placeholder="name@example.com" style="width: 90%;"><br>
+            <label for="" class="form-label">E-mail: </label> <?php echo $texto; ?>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">@</span>
+                <input type="text" class="form-control" placeholder="example@gmail.com" aria-label="example@gmail.com" aria-describedby="basic-addon1" required name="email"><br>
+            </div>
+
         </div>
         <div>
             <label for="" class="form-label">Telefone: </label>
-            <input type="tel" class="form-control ms-3" name="fone" id="nome" pattern="\([0-9]{2}\)([9]{1})?[0-9]{4}-[0-9]{4}" placeholder="Formato (18) 99999-8888" style="width: 90%;"><br>
+            <input type="tel" class="form-control" name="fone" id="nome" pattern="\([0-9]{2}\)([9]{1})?[0-9]{4}-[0-9]{4}" placeholder="Formato (18) 99999-8888"><br>
         </div>
         <div>
             <label for="" class="form-label">Senha: </label>
-            <input type="password" class="form-control ms-3" name="senha" id="nome" required style="width: 90%;" placeholder="Enter password"><br><br>
+            <input type="password" class="form-control" name="senha" id="nome" required style="width: 20%;" placeholder="Enter password"><br>
         </div>
         <div>
             <input type="submit" value="Enviar" class="btn btn-outline-primary mb-3 ms-3">

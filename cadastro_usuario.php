@@ -6,13 +6,20 @@
     $fone = $_POST['fone'];
     $senha = $_POST['senha'];
 
-    $sql = "INSERT INTO usuario VALUES(NULL, '$nome', '$email', '$fone', '$senha')";
-    $res = mysqli_query($con, $sql);
-    if(mysqli_affected_rows($con) == 1){
-        echo "Dados cadastrados com sucesso";
-        header("Location:listar_usuarios.php");
-    } else{
-        echo "Falha na gravação do registro<br>";
+    $check = "SELECT * FROM usuario WHERE email = '$email'";
+    foreach(mysqli_query($con, $check) as $key => $value){
+        $emailExiste = $value['email'];
+    }
+    if($email == $emailExiste){
+        header("Location:cadastro_usuarioHTML.php?v=<span class='text-danger'>Este email já existe</span>");
+    }else{
+        $sql = "INSERT INTO usuario VALUES(NULL, '$nome', '$email', '$fone', '$senha')";
+        $res = mysqli_query($con, $sql);
+            if(mysqli_affected_rows($con) == 1){
+                header("Location:listar_usuarios.php");
+            } else{
+                echo "Falha na gravação do registro<br>";
+            }
     }
 
     mysqli_close($con);
