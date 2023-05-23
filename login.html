@@ -1,0 +1,80 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login page</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/7b39153ed3.js" crossorigin="anonymous"></script>
+  <style></style>
+</head>
+
+<body style="background-color: black;">
+  <div class="container anima" id="container">
+
+    <!-- sign Up form section start-->
+    <div class="form sign_up">
+      <form action="cadastro_usuario.php" method="post">
+        <!-- heading -->
+        <h1>Create An Account</h1>
+        <!-- social media icons -->
+        <div class="social-container">
+          <a href="https://pt-br.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.google.com/"><i class="fa-brands fa-google"></i></a>
+          <a href="https://github.com/SamuelAlvesNavarro/ProjetoCadastro"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <span>use email for registration</span>
+        <!-- input fields start -->
+        <input type="text" placeholder="User Name">
+        <input type="email" placeholder="Email">
+        <input type="tel" name="fone" id="nome" pattern="\([0-9]{2}\)([9]{1})?[0-9]{4}-[0-9]{4}" placeholder="Formato (18) 99999-8888">
+        <input type="password" placeholder="Password">
+        <button>Create Account</button>
+        <!-- input fields end -->
+      </form>
+    </div>
+    <!-- sign Up form section end-->
+
+    <!-- sign in form section start-->
+    <div class="form sign_in">
+      <form action="login.php" method="post">
+        <!-- heading -->
+        <h1>Login In</h1>
+        <!-- social media icons -->
+        <div class="social-container">
+          <a href="https://pt-br.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.google.com/"><i class="fa-brands fa-google"></i></a>
+          <a href="https://github.com/SamuelAlvesNavarro/ProjetoCadastro"><i class="fa-brands fa-github"></i></a>
+        </div>
+        <span>Login In with your Account</span>
+        <!-- input fields start -->
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="senha" placeholder="Password" required>
+        <button>Login</button>
+        <!-- input fields end -->
+      </form>
+    </div>
+    <!-- sign in form section end-->
+
+    <!-- overlay section start-->
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-pannel overlay-left">
+          <h1>Already have an account</h1>
+          <p>Please Login</p>
+          <button id="signIn" class="overBtn">Sign In</button>
+        </div>
+        <div class="overlay-pannel overlay-right">
+          <h1>Create Account</h1>
+          <p>Start Your Journey with Us</p>
+          <button id="signUp" class="overBtn">Sign Up</button>
+        </div>
+      </div>
+    </div>
+    <!-- overlay section start-->
+  </div>
+  <script src="./index.js "></script>
+</body>
+
+</html>
