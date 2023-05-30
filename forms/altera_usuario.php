@@ -23,7 +23,7 @@
     <div class="text-center container-fluid p-4">
         <h1 class="h1">Alterar Dados do Usuário - IFSP</h1>
     </div>
-    <form method="post" action="altera_usuario_exe.php" class="container border border-black border-1 align-middle">
+    <form method="post" action="altera_usuario_exe.php" class="container border border-black border-1 align-middle" enctype="multipart/form-data">
         <!-- <input name="id_usuario" type="hidden" value="<?php //echo $row['id_usuario'] ?>" !-->
         <div>
             <label for="" class="form-label pt-3">Nome: </label>
@@ -39,8 +39,10 @@
         </div>
         <div>
             <label for="" class="form-label">Senha: </label>
-            <input type="password" class="form-control ms-3" name="senha" id="nome" required style="width: 90%;" value="<?php echo $row['senha'] ?>"><br><br>
+            <input type="password" class="form-control ms-3" name="senha" id="nome" required style="width: 90%;" value="<?php echo $row['senha'] ?>"><br>
         </div>
+            <label for="foto" class="form-label">Alterar foto: </label>
+            <input type="file" name="foto" id="foto" class="form-control ms-3" style="width: 90%;" value="<?php $_POST['foto'] = $row['foto']; ?>"><br><br>
         <div>
             <input type="submit" value="Enviar" class="btn btn-primary mb-3 ms-3">
         </div>

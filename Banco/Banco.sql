@@ -9,7 +9,8 @@ CREATE TABLE usuario(
     nome varchar(50) not null,
     email varchar(50) not null,
     fone varchar(30) null,
-    senha varchar(30) not null
+    senha varchar(30) not null,
+    foto varchar(100) null
 );
 
 /*

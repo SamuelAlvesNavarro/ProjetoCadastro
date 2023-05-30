@@ -1,5 +1,14 @@
 <?php
     require "conexao.php";
+    // Upload foto
+    $nome_foto = "";
+    if(file_exists($_FILES['foto']['tmp_name'])){
+        $pasta = "../fotos/";
+        $extensao = strtolower(substr($_FILES['foto']['name'],-4));
+        $nome_foto = $pasta.date("Ymd-His").$extensao;
+        move_uploaded_file($_FILES['foto']['tmp_name'], $nome_foto);
+    }
+    //Fim upload
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
@@ -13,7 +22,7 @@
     if($email == $emailExiste){
         header("Location:cadastro_usuarioHTML.php?v=<span class='text-danger'>Este email já existe</span>");
     }else{
-        $sql = "INSERT INTO usuario VALUES(NULL, '$nome', '$email', '$fone', '$senha')";
+        $sql = "INSERT INTO usuario VALUES(NULL, '$nome', '$email', '$fone', '$senha', '$nome_foto')";
         $res = mysqli_query($con, $sql);
             if(mysqli_affected_rows($con) == 1){
                 header("Location:listar_usuarios.php");

@@ -27,6 +27,7 @@
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col">Código</th>
+                        <th scope="col">Foto</th>
                         <th scope="col">Nome</th>
                         <th scope="col">E-mail</th>
                         <th scope="col">Telefone</th>
@@ -38,6 +39,11 @@
                         foreach($result as $key => $row){
                             echo "<tr scope='row'>";
                             echo "<td>".$row['id_usuario']."</td>";
+                            if($row['foto'] == ""){
+                                echo "<td></td>";
+                            }else{
+                                echo "<td><img src='". $row['foto'] ."' width='200' heigth='200'></td>";
+                            }
                             echo "<td>".$row['nome']."</td>";
                             echo "<td>".$row['email']."</td>";
                             echo "<td>".$row['fone']."</td>";

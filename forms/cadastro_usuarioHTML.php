@@ -20,7 +20,7 @@
     <div class="text-center container-fluid p-4">
         <h1 class="h1">Cadastro de Usuário - IFSP</h1>
     </div>
-    <form method="post" action="cadastro_usuario.php" class="container border border-black border-1 align-middle container-md">
+    <form method="post" action="cadastro_usuario.php" enctype="multipart/form-data" class="container border border-black border-1 align-middle container-md">
         <div>
             <label for="" class="form-label pt-3">Nome: </label>
             <input type="text" class="form-control" name="nome" id="nome" required placeholder="Enter name"><br>
@@ -41,6 +41,9 @@
             <label for="" class="form-label">Senha: </label>
             <input type="password" class="form-control" name="senha" id="nome" required style="width: 20%;" placeholder="Enter password"><br>
         </div>
+
+            <input type="file" name="foto" accept="image/*" id="foto"><br><br>
+
         <div>
             <input type="submit" value="Enviar" class="btn btn-outline-primary mb-3 ms-3">
         </div>
